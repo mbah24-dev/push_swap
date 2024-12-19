@@ -1,5 +1,9 @@
 # 📦 Push_swap
 
+<p align="center">
+  <img src="https://github.com/mbah24-dev/mbah24-dev/blob/main/42_badges/push_swape.png" alt="push_swap 42 project badge"/>
+</p>
+
 Push_swap est un projet de l'école 42 qui consiste à trier une pile d'entiers en utilisant un ensemble d'instructions prédéfinies. L'objectif est d'écrire un programme efficace capable de résoudre ce problème avec un minimum de mouvements. 🚀
 
 ---
@@ -106,7 +110,13 @@ ARG="4 3 2 1"; ./push_swap $ARG | wc -l
 
 Pour toute question ou suggestion :
 
-📩 [email@domain.com](mailto:email@domain.com)
+📩 [mbah@student.42lyon.fr](mailto:mbah@student.42lyon.fr)
+
+---
+
+## ⚠️ Note importante
+
+🛑 **Évitez de copier et coller ce code sans comprendre comment il fonctionne !** Le but du projet est d'apprendre et de maîtriser les concepts, pas de tricher. Prenez le temps de lire et d'analyser le code pour en tirer le maximum d'apprentissage. Merci ! 💡
 
 ---
 
