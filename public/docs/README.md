@@ -31,9 +31,12 @@ Le programme **Push_swap** prend en entrée une liste d'entiers (positifs ou né
 ```
 📁 push_swap
 ├── 📄 Makefile         # Pour compiler le programme
-├── 📄 push_swap.c      # Point d'entrée principal
+├── 📁 data
+└──   📄 README.md      # Documentation du projet
 ├── 📁 src/             # Contient le code source
-├── 📁 includes/        # Fichiers d'en-tête (.h)
+├──    📁 app/          # Contient le code source de l'application
+├──    main.c           #  Point d'entrée principal
+├── 📁 inc              # Fichiers d'en-tête (.h)
 └── 📄 README.md        # Documentation du projet
 ```
 

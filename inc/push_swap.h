@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:03:47 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/20 23:29:45 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/26 17:05:16 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 struct	s_stack
 {
@@ -52,7 +51,7 @@ int		an_error_occured(char **values);
 t_stack	new_element(int value, int key);
 size_t	get_stack_size(t_stack *stack);
 t_stack	*fill_stack(int *values, t_stack **stack_b, int stack_size);
-void	stack_status(t_stack *stack);
+void	stack_status(t_stack *stack, int status);
 
 /*=========== (stack_op_swap_push functions) ===========*/
 int		is_stack_sorted(t_stack *stack);
@@ -70,9 +69,30 @@ void	rra_rrb(t_stack *stack_a, t_stack *stack_b);
 void	sort_two_elements(t_stack *stack_a, char type);
 void	sort_three_elements(t_stack *stack_a);
 void	sort_four_elements(t_stack *stack_a, t_stack *stack_b);
+void	sort_five_elements(t_stack *stack_a, t_stack *stack_b);
+int		sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 
 /*=========== (stack_sort_small_utils functions) ===========*/
-t_stack	get_max_value(t_stack *stack_);
-void	move_max_to_top(t_stack *stack_, char type);
+void	reset_keys(t_stack *stack_);
+t_stack	get_min_value(t_stack *stack_);
+void	move_min_to_top(t_stack *stack_, char type);
+void	optimal_min_move(t_stack *stack_, char type, t_stack min, int sz);
+void	big_recursive_sort(t_stack *stack_a, t_stack *stack_b);
+
+/*=========== (sort_large_stack et _utils functions) ===========*/
+t_stack	get_max_value(const t_stack *stack_);
+//t_stack	find_next_smaller(const t_stack *stack_, const t_stack element);
+int		calculate_push_cost(t_stack *stack_a, t_stack *stack_b, t_stack elemnt);
+//t_stack	find_next_larger(const t_stack *stack_, const t_stack element);
+int		is_min_or_max(t_stack *stack_, t_stack element);
+int		move_to_top_cost(t_stack *stack_, t_stack val);
+void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b);
+void	move_and_push_to_b(t_stack *stack_a, t_stack *stack_b, t_stack element);
+int		sort_large_stacks(t_stack *stack_a, t_stack *stack_b);
+t_stack	find_next_(const t_stack *stack_, t_stack elemnt, char *type);
+
+/*=========== (push_swap functions) ===========*/
+void	ft_putstr_fd(char *str, int fd);
+void	free_all(void *stack_a, void *stack_b);
 
 #endif

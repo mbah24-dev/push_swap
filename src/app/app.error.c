@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   app.error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:21:36 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/20 23:45:56 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/25 19:56:18 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	has_value_duplicates(char **values)
 {
@@ -58,8 +58,6 @@ int	values_is_integer(char **values)
 int	an_error_occured(char **values)
 {
 	if (has_value_duplicates(values) || !values_is_integer(values))
-	{
 		return (1);
-	}
 	return (0);
 }
