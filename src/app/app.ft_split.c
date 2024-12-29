@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:21:48 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/25 19:56:08 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/28 15:22:26 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_free_all(char **str, int *i)
 {
-	while (*i > 0)
+	while (*i >= 0)
 	{
 		free(str[*i]);
 		str[*i] = (NULL);
 		*i = *i - 1;
 	}
+	free(str);
+	str = (NULL);
 }
 
 static size_t	ft_wordsize(char *str, char sp)

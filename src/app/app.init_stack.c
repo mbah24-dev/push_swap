@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:12:33 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/26 00:01:36 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/28 15:19:36 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*fill_stack(int *values, t_stack **stack_b, int stack_size)
 	(*stack_b)[i] = new_element(0, -1);
 	return (stack_a);
 }
-
+/*
 void	stack_status(t_stack *stack, int status)
 {
 	int	i;
@@ -75,3 +75,4 @@ void	stack_status(t_stack *stack, int status)
 	else
 		ft_putstr_fd("KO 👎\n", 1);
 }
+*/

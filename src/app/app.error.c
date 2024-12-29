@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:21:36 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/25 19:56:18 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/28 15:10:17 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,38 @@ int	has_value_duplicates(char **values)
 int	values_is_integer(char **values)
 {
 	int		i;
+	char	*itoa_return;
 
 	i = 0;
 	while (values[i])
 	{
+		itoa_return = ft_itoa(ft_atoi(values[i]));
 		if (values[i][0] != '+')
 		{
-			if (ft_strcmp(values[i], ft_itoa(ft_atoi(values[i]))) != 0)
+			if (ft_strcmp(values[i], itoa_return) != 0)
+			{
+				free(itoa_return);
 				return (0);
+			}
 		}
 		else
 		{
-			if (ft_strcmp(values[i] + 1, ft_itoa(ft_atoi(values[i]))) != 0)
-				return (0);
+			if (ft_strcmp(values[i] + 1, itoa_return) != 0)
+				return (free(itoa_return), 0);
 		}
 		i++;
 	}
-	return (1);
+	return (free(itoa_return), 1);
 }
 
-int	an_error_occured(char **values)
+void	an_error_occured(char **values)
 {
 	if (has_value_duplicates(values) || !values_is_integer(values))
-		return (1);
-	return (0);
+	{
+		free_recursively(values);
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+	free_recursively(values);
+	values = (NULL);
 }

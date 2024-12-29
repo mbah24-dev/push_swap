@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:01:00 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/25 19:55:45 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/28 15:16:17 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	**get_values_in_str(char **av, char sp)
 	{
 		temp = ft_split(av[i], sp);
 		j = j + deep_copy(values, temp, j);
+		free_recursively(temp);
 	}
 	values[nb_values] = (NULL);
 	return (values);
@@ -74,5 +75,5 @@ int	*get_final_values(char **values, char sp, int *size)
 	i = -1;
 	while (temp[++i])
 		res[i] = (ft_atoi(temp[i]));
-	return (res);
+	return (free_recursively(temp), res);
 }

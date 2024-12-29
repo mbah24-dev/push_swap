@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:03:47 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/26 17:05:16 by mbah             ###   ########.fr       */
+/*   Updated: 2024/12/28 15:08:51 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		*get_final_values(char **values, char sp, int *size);
 int		ft_strcmp(char *s1, char *s2);
 int		values_is_integer(char **values);
 char	*ft_itoa(int n);
-int		an_error_occured(char **values);
+void	an_error_occured(char **values);
 
 /*=========== (init_stack functions) ===========*/
 t_stack	new_element(int value, int key);
@@ -77,13 +77,12 @@ void	reset_keys(t_stack *stack_);
 t_stack	get_min_value(t_stack *stack_);
 void	move_min_to_top(t_stack *stack_, char type);
 void	optimal_min_move(t_stack *stack_, char type, t_stack min, int sz);
-void	big_recursive_sort(t_stack *stack_a, t_stack *stack_b);
 
 /*=========== (sort_large_stack et _utils functions) ===========*/
 t_stack	get_max_value(const t_stack *stack_);
-//t_stack	find_next_smaller(const t_stack *stack_, const t_stack element);
 int		calculate_push_cost(t_stack *stack_a, t_stack *stack_b, t_stack elemnt);
-//t_stack	find_next_larger(const t_stack *stack_, const t_stack element);
+void	merge_stacks(t_stack *stack_a, t_stack *stack_b,
+			int *min_cost, int *max_cost);
 int		is_min_or_max(t_stack *stack_, t_stack element);
 int		move_to_top_cost(t_stack *stack_, t_stack val);
 void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b);
@@ -94,5 +93,6 @@ t_stack	find_next_(const t_stack *stack_, t_stack elemnt, char *type);
 /*=========== (push_swap functions) ===========*/
 void	ft_putstr_fd(char *str, int fd);
 void	free_all(void *stack_a, void *stack_b);
+void	free_recursively(char **str);
 
 #endif
