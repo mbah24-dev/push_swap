@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:19:45 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/28 02:45:56 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/02 21:54:25 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,30 @@ void	move_and_push_to_b(t_stack *stack_a, t_stack *stack_b, t_stack element)
 
 void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b)
 {
-	int		i;
-	int		cost;
-	int		temp;
-	t_stack	element;
+	int				i;
+	int				cost;
+	int				temp;
+	t_stack			element;
+	t_optimal_move	*cost_a_b;
 
-	temp = calculate_push_cost(stack_a, stack_b, stack_a[0]);
+	cost_a_b = calc_opt_push_cost(stack_a, stack_b, stack_a[0]);
+	//temp = calculate_push_cost(stack_a, stack_b, stack_a[0]);
+	temp = get_final_cost_a_b(cost_a_b);
 	element = stack_a[0];
 	i = -1;
 	while (stack_a[++i].key != -1)
 	{
-		cost = calculate_push_cost(stack_a, stack_b, stack_a[i]);
+		cost_a_b = calc_opt_push_cost(stack_a, stack_b, stack_a[i]);
+		cost = get_final_cost_a_b(cost_a_b);
+		//cost = calculate_push_cost(stack_a, stack_b, stack_a[i]);
 		if (cost < temp)
 		{
 			temp = cost;
 			element = stack_a[i];
 		}
 	}
-	move_and_push_to_b(stack_a, stack_b, element);
+	//move_and_push_to_b(stack_a, stack_b, element);
+	optimal_move_and_push_to_b(stack_a, stack_b, element);
 }
 
 int	sort_large_stacks(t_stack *stack_a, t_stack *stack_b)
