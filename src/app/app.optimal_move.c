@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:52:41 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/02 22:04:55 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/03 14:24:18 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ t_optimal_move	optimal_move_cost(t_stack *stack_, t_stack val)
 	nb_rev_rotate = stack_[stack_size - 1].key - val.key + 1;
 	if (nb_rotate <= nb_rev_rotate)
 	{
+		if (nb_rotate == 0)
+			opt_move.is_rotate = 3;
+		else
+			opt_move.is_rotate = 1;
 		opt_move.cost = nb_rotate;
-		opt_move.is_rotate = 1;
 		return (opt_move);
 	}
 	opt_move.cost = nb_rev_rotate;
@@ -79,7 +82,7 @@ void	optimal_move_together(t_stack *stack_a, t_stack *stack_b, int is_rotate, in
 			i++;
 		}
 	}
-	else
+	else if (is_rotate == 0)
 	{
 		while (i < nb)
 		{
