@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/29 13:55:12 by mbah              #+#    #+#              #
-#    Updated: 2024/12/29 13:55:15 by mbah             ###   ########.fr        #
+#    Created: 2025/01/02 21:57:50 by mbah              #+#    #+#              #
+#    Updated: 2025/01/02 21:57:54 by mbah             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC        = $(DIR)/app/app.error.c $(DIR)/app/app.utils.c $(DIR)/app/app.ft_spl
 			 $(DIR)/app/app.stack_op_rotate.c $(DIR)/app/app.stack_op_swap_push.c $(DIR)/app/app.parse_argv.c \
 			 $(DIR)/app/app.init_stack.c $(DIR)/app/app.sort_large_stacks_utils.c $(DIR)/app/app.sort_large_stacks.c \
 			 $(DIR)/app/app.ft_itoa.c $(DIR)/app/app.stack_sort_small_utils.c $(DIR)/app/app.sort_small_stack.c \
-			 $(DIR)/main.c 
+			 $(DIR)/app/app.optimal_move.c $(DIR)/main.c 
 
 OBJS       = $(SRC:.c=.o)
 
