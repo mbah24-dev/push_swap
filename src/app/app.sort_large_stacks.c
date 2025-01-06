@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:19:45 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/02 21:54:25 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/06 00:37:51 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,6 @@ t_stack	find_next_(const t_stack *stack_, t_stack elemnt, char *type)
 	return (next_);
 }
 
-void	move_and_push_to_b(t_stack *stack_a, t_stack *stack_b, t_stack element)
-{
-	size_t	stack_size;
-	t_stack	next_smaller;
-
-	stack_size = get_stack_size(stack_a);
-	optimal_min_move(stack_a, 'a', element, stack_size);
-	stack_size = get_stack_size(stack_b);
-	if (is_min_or_max(stack_b, element))
-		next_smaller = get_max_value(stack_b);
-	else
-		next_smaller = find_next_(stack_b, element, "smaller");
-	optimal_min_move(stack_b, 'b', next_smaller, stack_size);
-	push_(stack_a, stack_b, 'b');
-}
-
 void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	int				i;
@@ -73,7 +57,6 @@ void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b)
 	t_optimal_move	*cost_a_b;
 
 	cost_a_b = calc_opt_push_cost(stack_a, stack_b, stack_a[0]);
-	//temp = calculate_push_cost(stack_a, stack_b, stack_a[0]);
 	temp = get_final_cost_a_b(cost_a_b);
 	element = stack_a[0];
 	i = -1;
@@ -81,14 +64,12 @@ void	compare_and_push_min_cost(t_stack *stack_a, t_stack *stack_b)
 	{
 		cost_a_b = calc_opt_push_cost(stack_a, stack_b, stack_a[i]);
 		cost = get_final_cost_a_b(cost_a_b);
-		//cost = calculate_push_cost(stack_a, stack_b, stack_a[i]);
 		if (cost < temp)
 		{
 			temp = cost;
 			element = stack_a[i];
 		}
 	}
-	//move_and_push_to_b(stack_a, stack_b, element);
 	optimal_move_and_push_to_b(stack_a, stack_b, element);
 }
 
@@ -96,17 +77,13 @@ int	sort_large_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	size_a;
 	t_stack	min;
-	int		min_cost_a;
-	int		max_cost_a;
 
 	push_(stack_a, stack_b, 'b');
 	push_(stack_a, stack_b, 'b');
-	min_cost_a = 0;
-	max_cost_a = 0;
 	while (get_stack_size(stack_a) > 3)
 		compare_and_push_min_cost(stack_a, stack_b);
 	sort_three_elements(stack_a);
-	merge_stacks(stack_a, stack_b, &min_cost_a, &max_cost_a);
+	merge_stacks(stack_a, stack_b);
 	min = get_min_value(stack_a);
 	size_a = get_stack_size(stack_a);
 	optimal_min_move(stack_a, 'a', min, size_a);
