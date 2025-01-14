@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:21:36 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/28 15:10:17 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:45:31 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ int	values_is_integer(char **values)
 			}
 		}
 		else
-		{
-			if (ft_strcmp(values[i] + 1, itoa_return) != 0)
-				return (free(itoa_return), 0);
-		}
+			return (free(itoa_return), 0);
 		i++;
 	}
 	return (free(itoa_return), 1);
