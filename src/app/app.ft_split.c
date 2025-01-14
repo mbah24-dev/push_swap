@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:21:48 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/28 15:22:26 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 19:00:33 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 void	ft_free_all(char **str, int *i)
 {

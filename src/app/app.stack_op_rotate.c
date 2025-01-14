@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:27:31 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/27 22:45:19 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:58:59 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 void	rotate_(t_stack *stack_, char type)
 {

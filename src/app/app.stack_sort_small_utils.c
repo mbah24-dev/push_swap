@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 21:37:01 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/27 22:42:15 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:59:02 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 void	reset_keys(t_stack *stack_)
 {

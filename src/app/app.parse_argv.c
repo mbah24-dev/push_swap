@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:01:00 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/28 15:16:17 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 19:00:02 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 size_t	number_of_value(char **argv, char sp)
 {

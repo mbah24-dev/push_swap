@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 23:45:44 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/25 19:56:13 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 19:00:42 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

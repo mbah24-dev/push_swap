@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:19:45 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/06 00:37:51 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:58:54 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 t_stack	init_next_(char *type)
 {

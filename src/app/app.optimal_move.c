@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:52:41 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/06 01:29:18 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 19:00:12 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 int	get_final_cost_a_b(t_optimal_move *cost_a_b)
 {

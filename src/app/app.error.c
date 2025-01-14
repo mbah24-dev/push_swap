@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:21:36 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 18:45:31 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 19:00:50 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 int	has_value_duplicates(char **values)
 {

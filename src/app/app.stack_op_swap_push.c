@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:51:14 by mbah              #+#    #+#             */
-/*   Updated: 2024/12/27 22:44:30 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:59:00 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 int	is_stack_sorted(t_stack *stack)
 {

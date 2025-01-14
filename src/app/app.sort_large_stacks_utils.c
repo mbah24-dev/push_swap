@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 16:03:42 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/06 01:21:00 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:59:53 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 t_optimal_move	optimal_move_cost(t_stack *stack_, t_stack val)
 {

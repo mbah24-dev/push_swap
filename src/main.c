@@ -6,11 +6,11 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:57:24 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/06 01:20:23 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/14 18:58:06 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	free_recursively(char **str)
 {
