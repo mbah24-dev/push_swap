@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:12:33 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 19:00:22 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/15 00:14:44 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,4 @@ t_stack	*fill_stack(int *values, t_stack **stack_b, int stack_size)
 	stack_a[i] = new_element(0, -1);
 	(*stack_b)[i] = new_element(0, -1);
 	return (stack_a);
-}
-
-void	stack_status(t_stack *stack, int status)
-{
-	int	i;
-
-	i = 0;
-	ft_putstr_fd("[ ", 1);
-	while (stack[i].key != -1)
-	{
-		ft_putstr_fd("[val: ", 1);
-		ft_putstr_fd(ft_itoa(stack[i].value), 1);
-		ft_putstr_fd(", ", 1);
-		ft_putstr_fd("key: ", 1);
-		ft_putstr_fd(ft_itoa(stack[i].key), 1);
-		ft_putstr_fd("], ", 1);
-		i++;
-	}
-	ft_putstr_fd(ft_itoa(stack[i].value), 1);
-	ft_putstr_fd(" ]\n", 1);
-	if (status == 1)
-		ft_putstr_fd("OK 👍\n", 1);
-	else
-		ft_putstr_fd("KO 👎\n", 1);
 }

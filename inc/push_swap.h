@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:03:47 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/06 01:19:19 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/15 00:15:38 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void			an_error_occured(char **values);
 t_stack			new_element(int value, int key);
 size_t			get_stack_size(t_stack *stack);
 t_stack			*fill_stack(int *values, t_stack **stack_b, int stack_size);
-void			stack_status(t_stack *stack, int status);
 
 /*=========== (stack_op_swap_push functions) ===========*/
 int				is_stack_sorted(t_stack *stack);
@@ -107,7 +106,6 @@ int				sort_large_stacks(t_stack *stack_a, t_stack *stack_b);
 t_stack			find_next_(const t_stack *stack_, t_stack elemnt, char *type);
 
 /*=========== (push_swap functions) ===========*/
-void			ft_putstr_fd(char *str, int fd);
 void			free_all(void *stack_a, void *stack_b);
 void			free_recursively(char **str);
 

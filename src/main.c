@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:57:24 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 18:58:06 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/15 00:14:56 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,6 @@ void	free_all(void *stack_a, void *stack_b)
 	stack_a = (NULL);
 	free(stack_b);
 	stack_b = (NULL);
-}
-
-void	ft_putstr_fd(char *str, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(fd, &str[i], 1);
-		i++;
-	}
 }
 
 int	main(int argc, char **argv)
