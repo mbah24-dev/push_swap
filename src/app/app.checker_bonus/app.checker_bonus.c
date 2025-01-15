@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:04:36 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 23:52:37 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/15 14:47:40 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ int	my_checker(t_stack *stack_a, t_stack *stack_b)
 		if (!do_move(stack_a, stack_b, line))
 		{
 			write(1, "Error\n", 6);
-			break ;
+			free_all(stack_a, stack_b);
+			free(line);
+			exit(EXIT_FAILURE);
 		}
 		free(line);
 		line = get_next_line(0);
