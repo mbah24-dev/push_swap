@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 23:19:45 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 18:58:54 by mbah             ###   ########.fr       */
+/*   Updated: 2025/01/15 15:05:36 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,18 @@ int	sort_large_stacks(t_stack *stack_a, t_stack *stack_b)
 	size_t	size_a;
 	t_stack	min;
 
-	push_(stack_a, stack_b, 'b');
-	push_(stack_a, stack_b, 'b');
-	while (get_stack_size(stack_a) > 3)
-		compare_and_push_min_cost(stack_a, stack_b);
-	sort_three_elements(stack_a);
-	merge_stacks(stack_a, stack_b);
-	min = get_min_value(stack_a);
-	size_a = get_stack_size(stack_a);
-	optimal_min_move(stack_a, 'a', min, size_a);
-	return (is_stack_sorted(stack_a) && get_stack_size(stack_b) == 0);
+	if (!is_stack_sorted(stack_a))
+	{
+		push_(stack_a, stack_b, 'b');
+		push_(stack_a, stack_b, 'b');
+		while (get_stack_size(stack_a) > 3)
+			compare_and_push_min_cost(stack_a, stack_b);
+		sort_three_elements(stack_a);
+		merge_stacks(stack_a, stack_b);
+		min = get_min_value(stack_a);
+		size_a = get_stack_size(stack_a);
+		optimal_min_move(stack_a, 'a', min, size_a);
+		return (is_stack_sorted(stack_a) && get_stack_size(stack_b) == 0);
+	}
+	return (1);
 }
