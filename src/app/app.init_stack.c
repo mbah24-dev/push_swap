@@ -40,7 +40,7 @@ t_stack	*fill_stack(int *values, t_stack **stack_b, int stack_size)
 	stack_a = (t_stack *) malloc(sizeof(t_stack) * (stack_size + 2));
 	*stack_b = (t_stack *) malloc(sizeof(t_stack) * (stack_size + 2));
 	if (!stack_a || !(*stack_b))
-		return (NULL);
+		return (free(values), free_all(stack_a, *stack_b), NULL);
 	while (i < stack_size)
 	{
 		stack_a[i] = new_element(values[i], i);
@@ -49,5 +49,5 @@ t_stack	*fill_stack(int *values, t_stack **stack_b, int stack_size)
 	}
 	stack_a[i] = new_element(0, -1);
 	(*stack_b)[i] = new_element(0, -1);
-	return (stack_a);
+	return (free(values), stack_a);
 }

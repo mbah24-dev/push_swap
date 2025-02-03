@@ -100,9 +100,11 @@ int	main(int argc, char **argv)
 	res = get_values_in_str(argv + 1, ' ');
 	an_error_occured(res);
 	values = get_final_values(argv + 1, ' ', &size);
+	if (!values)
+		return (write(1, "Error\n", 6), 1);
 	stack_a = fill_stack(values, &stack_b, size);
-	free(values);
-	values = (NULL);
+	if (!stack_a)
+		return (write(1, "malloc Stack Error\n", 19), 1);
 	if (my_checker(stack_a, stack_b) == 0)
 		write(1, "KO\n", 3);
 	else

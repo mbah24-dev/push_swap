@@ -14,15 +14,31 @@
 
 int	get_final_cost_a_b(t_optimal_move *cost_a_b)
 {
+	int	temp;
+	int	cost_a;
+	int	cost_b;
+
+	if (!cost_a_b)
+		exit(-1);
 	if (cost_a_b[0].is_rotate == cost_a_b[1].is_rotate)
 	{
 		if (cost_a_b[0].cost < cost_a_b[1].cost)
-			return (cost_a_b[1].cost + 1);
+		{
+			temp = cost_a_b[1].cost;
+			return (free(cost_a_b), temp + 1);
+		}
 		else if (cost_a_b[0].cost > cost_a_b[1].cost)
-			return (cost_a_b[0].cost + 1);
-		return ((cost_a_b[0].cost + 1));
+		{
+			temp = cost_a_b[0].cost;
+			return (free(cost_a_b), temp + 1);
+		}
+		temp = cost_a_b[0].cost;
+		return (free(cost_a_b), (temp + 1));
 	}
-	return (cost_a_b[0].cost + cost_a_b[1].cost + 1);
+	cost_a = cost_a_b[0].cost;
+	cost_b = cost_a_b[1].cost;
+	free(cost_a_b);
+	return (cost_a + cost_b + 1);
 }
 
 t_optimal_move	*calc_opt_push_cost(t_stack *stack_a, t_stack *stack_b,
@@ -33,7 +49,7 @@ t_optimal_move	*calc_opt_push_cost(t_stack *stack_a, t_stack *stack_b,
 
 	cost_a_b = (t_optimal_move *) malloc(sizeof(t_optimal_move) * 3);
 	if (!cost_a_b)
-		return (NULL);
+		return (free_all(stack_a, stack_b), NULL);
 	cost_a_b[0] = optimal_move_cost(stack_a, elemnt);
 	if (is_min_or_max(stack_b, elemnt))
 		cost_a_b[1] = (optimal_move_cost(stack_b, get_max_value(stack_b)));
@@ -115,4 +131,5 @@ void	optimal_move_and_push_to_b(t_stack *stack_a, t_stack *stack_b,
 		optimal_min_move(stack_b, 'b', next_smaller, get_stack_size(stack_b));
 	}
 	push_(stack_a, stack_b, 'b');
+	free(cost_a_b);
 }

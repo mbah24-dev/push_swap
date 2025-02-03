@@ -66,12 +66,14 @@ int	*get_final_values(char **values, char sp, int *size)
 
 	i = 0;
 	temp = get_values_in_str(values, sp);
-	while (temp[i])
+	if (!temp)
+		return (NULL);
+	while (temp && temp[i])
 		i++;
 	res = (int *) malloc(sizeof(int) * (i));
 	*size = i;
 	if (!res)
-		return (NULL);
+		return (free_recursively(temp), NULL);
 	i = -1;
 	while (temp[++i])
 		res[i] = (ft_atoi(temp[i]));

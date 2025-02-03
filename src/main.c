@@ -17,21 +17,30 @@ void	free_recursively(char **str)
 	int	i;
 
 	i = -1;
-	while (str[++i])
+	if (str)
 	{
-		free(str[i]);
-		str[i] = (NULL);
+		while (str[++i])
+		{
+			free(str[i]);
+			str[i] = (NULL);
+		}
+		free(str);
+		str = (NULL);
 	}
-	free(str);
-	str = (NULL);
 }
 
 void	free_all(void *stack_a, void *stack_b)
 {
-	free(stack_a);
-	stack_a = (NULL);
-	free(stack_b);
-	stack_b = (NULL);
+	if (stack_a != NULL)
+	{
+		free(stack_a);
+		stack_a = (NULL);
+	}
+	if (stack_b != NULL)
+	{
+		free(stack_b);
+		stack_b = (NULL);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -48,9 +57,11 @@ int	main(int argc, char **argv)
 	res = get_values_in_str(argv + 1, ' ');
 	an_error_occured(res);
 	values = get_final_values(argv + 1, ' ', &size);
+	if (!values)
+		return (write(1, "Error\n", 6), 1);
 	stack_a = fill_stack(values, &stack_b, size);
-	free(values);
-	values = (NULL);
+	if (!stack_a)
+		return (write(1, "malloc Stack Error\n", 19), 1);
 	if (get_stack_size(stack_a) <= 5)
 		sort_small_stack(stack_a, stack_b);
 	else
