@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 19:52:41 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 19:00:12 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:41:15 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int	get_final_cost_a_b(t_optimal_move *cost_a_b)
 		if (cost_a_b[0].cost < cost_a_b[1].cost)
 		{
 			temp = cost_a_b[1].cost;
-			return (free(cost_a_b), temp + 1);
+			return (free_fst_return_snd(cost_a_b, (temp + 1)));
 		}
 		else if (cost_a_b[0].cost > cost_a_b[1].cost)
 		{
 			temp = cost_a_b[0].cost;
-			return (free(cost_a_b), temp + 1);
+			return (free_fst_return_snd(cost_a_b, (temp + 1)));
 		}
 		temp = cost_a_b[0].cost;
-		return (free(cost_a_b), (temp + 1));
+		return (free_fst_return_snd(cost_a_b, (temp + 1)));
 	}
 	cost_a = cost_a_b[0].cost;
 	cost_b = cost_a_b[1].cost;
@@ -49,7 +49,10 @@ t_optimal_move	*calc_opt_push_cost(t_stack *stack_a, t_stack *stack_b,
 
 	cost_a_b = (t_optimal_move *) malloc(sizeof(t_optimal_move) * 3);
 	if (!cost_a_b)
-		return (free_all(stack_a, stack_b), NULL);
+	{
+		free_all(stack_a, stack_b);
+		return (NULL);
+	}
 	cost_a_b[0] = optimal_move_cost(stack_a, elemnt);
 	if (is_min_or_max(stack_b, elemnt))
 		cost_a_b[1] = (optimal_move_cost(stack_b, get_max_value(stack_b)));

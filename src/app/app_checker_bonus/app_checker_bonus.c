@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:04:36 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/15 14:47:40 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:18:20 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ int	main(int argc, char **argv)
 	an_error_occured(res);
 	values = get_final_values(argv + 1, ' ', &size);
 	if (!values)
-		return (write(1, "Error\n", 6), 1);
+		exit(-1);
 	stack_a = fill_stack(values, &stack_b, size);
 	if (!stack_a)
-		return (write(1, "malloc Stack Error\n", 19), 1);
+		exit(-1);
 	if (my_checker(stack_a, stack_b) == 0)
 		write(1, "KO\n", 3);
 	else

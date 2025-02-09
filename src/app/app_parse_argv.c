@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:01:00 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 19:00:02 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:48:17 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,13 @@ int	*get_final_values(char **values, char sp, int *size)
 	res = (int *) malloc(sizeof(int) * (i));
 	*size = i;
 	if (!res)
-		return (free_recursively(temp), NULL);
+	{
+		free_recursively(temp);
+		return (NULL);
+	}
 	i = -1;
 	while (temp[++i])
 		res[i] = (ft_atoi(temp[i]));
-	return (free_recursively(temp), res);
+	free_recursively(temp);
+	return (res);
 }

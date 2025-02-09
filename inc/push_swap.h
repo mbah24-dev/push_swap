@@ -6,7 +6,7 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:03:47 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/15 14:45:26 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:37:50 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int				ft_strcmp(char *s1, char *s2);
 int				values_is_integer(char **values);
 char			*ft_itoa(int n);
 void			an_error_occured(char **values);
+int				free_fst_return_snd(void *fst, int snd);
 
 /*=========== (init_stack functions) ===========*/
 t_stack			new_element(int value, int key);

@@ -6,11 +6,18 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 22:21:36 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 19:00:50 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:39:05 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	free_fst_return_snd(void *fst, int snd)
+{
+	free(fst);
+	fst = NULL;
+	return (snd);
+}
 
 int	has_value_duplicates(char **values)
 {
@@ -36,7 +43,6 @@ int	has_value_duplicates(char **values)
 	return (1);
 }
 
-/* evite le signe + a la ligne 49 */
 int	values_is_integer(char **values)
 {
 	int		i;
@@ -58,7 +64,7 @@ int	values_is_integer(char **values)
 				free(itoa_return);
 			}
 			else
-				return (free(itoa_return), 0);
+				return (free_fst_return_snd(itoa_return, 0));
 			i++;
 		}
 		return (1);
@@ -70,13 +76,13 @@ void	an_error_occured(char **values)
 {
 	if (!values)
 	{
-		write(1, "Malloc Error\n", 13);
+		write(2, "Malloc Error\n", 13);
 		exit(-1);
 	}
 	if (has_value_duplicates(values) || !values_is_integer(values))
 	{
 		free_recursively(values);
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	free_recursively(values);

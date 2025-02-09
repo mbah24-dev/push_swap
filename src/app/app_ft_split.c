@@ -6,13 +6,13 @@
 /*   By: mbah <mbah@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:21:48 by mbah              #+#    #+#             */
-/*   Updated: 2025/01/14 19:00:33 by mbah             ###   ########.fr       */
+/*   Updated: 2025/02/09 13:30:23 by mbah             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_all(char **str, int *i)
+static void	*ft_free_all(char **str, int *i)
 {
 	while (*i >= 0)
 	{
@@ -22,6 +22,7 @@ void	ft_free_all(char **str, int *i)
 	}
 	free(str);
 	str = (NULL);
+	return (NULL);
 }
 
 static size_t	ft_wordsize(char *str, char sp)
@@ -51,7 +52,7 @@ char	**ft_split(char *str, char sp)
 		{
 			res[j] = malloc(sizeof(char) * (ft_wordsize(str + i, sp) + 1));
 			if (!res[j])
-				return (ft_free_all(res, &j), NULL);
+				return (ft_free_all(res, &j));
 			ft_strlcpy(res[j], str + i, ft_wordsize(str + i, sp) + 1);
 			j = j + 1;
 			i = i + ft_wordsize(str + i, sp);
